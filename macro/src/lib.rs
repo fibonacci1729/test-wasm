@@ -13,7 +13,7 @@ pub fn test_wasm(_attr: TokenStream, item: TokenStream) -> TokenStream {
         func_name,
     );
     let component_type = generate_world(func_name);
-    let export = format!("{func_name}").to_kebab_case();
+    let export = format!("test_{func_name}").to_kebab_case();
     let tokens = quote!(
         #func_item
 
@@ -32,7 +32,7 @@ pub fn test_wasm(_attr: TokenStream, item: TokenStream) -> TokenStream {
 fn generate_world(ident: &syn::Ident) -> proc_macro2::TokenStream {
     let component_type_name = format_ident!("_WIT_BINDGEN_COMPONENT_TYPE_{}", format!("{ident}").to_uppercase());
     let version = env!("CARGO_PKG_VERSION");
-    let world_name = format!("{ident}").to_kebab_case();
+    let world_name = format!("test_{ident}").to_kebab_case();
     let world_text = format!(r#"
         package test:test;
 

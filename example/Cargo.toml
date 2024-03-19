@@ -1,7 +1,7 @@
 [workspace]
 
 [package]
-name = "demo"
+name = "example"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,4 +9,4 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-test-wasm = { path = ".." }
+test-wasm-macro = { path = "../macro" }
